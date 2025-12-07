@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+
+    <button class="settings-btn" id="settingsBtn" title="Configuración">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path
+                d="M12 1v6m0 6v6m0-6h6m-6 0H6m3.5-8.5l4.24 4.24m0 8.48L9.5 20.5m8.48-4.24L20.5 14.5m-4.24-8.48L14.5 3.5">
+            </path>
+        </svg>
+    </button>
+
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>Configuración</h2>
+                <button class="close-settings" id="closeSettings">×</button>
+            </div>
+
+            <div class="settings-body">
+                <!-- Theme Selection -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Temas de Color</h3>
+                    <div class="theme-grid">
+                        <div class="theme-card active" data-theme="purple" title="Púrpura Aesthetic">
+                            <div class="theme-preview">
+                                <div class="theme-color" style="background: #6c5fcf;"></div>
+                                <div class="theme-color" style="background: #a591ef;"></div>
+                                <div class="theme-color" style="background: #acb3f6;"></div>
+                            </div>
+                            <span class="theme-name">Púrpura</span>
+                        </div>
+                        <div class="theme-card" data-theme="ocean" title="Océano Profundo">
+                            <div class="theme-preview">
+                                <div class="theme-color" style="background: #0077be;"></div>
+                                <div class="theme-color" style="background: #00a8e8;"></div>
+                                <div class="theme-color" style="background: #7dd3fc;"></div>
+                            </div>
+                            <span class="theme-name">Océano</span>
+                        </div>
+                        <div class="theme-card" data-theme="sunset" title="Atardecer Cálido">
+                            <div class="theme-preview">
+                                <div class="theme-color" style="background: #ff6b6b;"></div>
+                                <div class="theme-color" style="background: #ff8e53;"></div>
+                                <div class="theme-color" style="background: #ffd93d;"></div>
+                            </div>
+                            <span class="theme-name">Atardecer</span>
+                        </div>
+                        <div class="theme-card" data-theme="forest" title="Bosque Místico">
+                            <div class="theme-preview">
+                                <div class="theme-color" style="background: #2d6a4f;"></div>
+                                <div class="theme-color" style="background: #52b788;"></div>
+                                <div class="theme-color" style="background: #95d5b2;"></div>
+                            </div>
+                            <span class="theme-name">Bosque</span>
+                        </div>
+                        <div class="theme-card" data-theme="rose" title="Rosa Elegante">
+                            <div class="theme-preview">
+                                <div class="theme-color" style="background: #d946ef;"></div>
+                                <div class="theme-color" style="background: #f472b6;"></div>
+                                <div class="theme-color" style="background: #fda4af;"></div>
+                            </div>
+                            <span class="theme-name">Rosa</span>
+                        </div>
+                        <div class="theme-card" data-theme="midnight" title="Medianoche">
+                            <div class="theme-preview">
+                                <div class="theme-color" style="background: #4c1d95;"></div>
+                                <div class="theme-color" style="background: #7c3aed;"></div>
+                                <div class="theme-color" style="background: #a78bfa;"></div>
+                            </div>
+                            <span class="theme-name">Medianoche</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Country/Timezone Selection -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">País y Zona Horaria</h3>
+                    <select class="settings-select" id="timezoneSelect">
+                        <option value="America/Guayaquil">Ecuador - Guayaquil</option>
+                        <option value="America/New_York">Estados Unidos - Nueva York</option>
+                        <option value="America/Los_Angeles">Estados Unidos - Los Ángeles</option>
+                        <option value="America/Chicago">Estados Unidos - Chicago</option>
+                        <option value="America/Mexico_City">México - Ciudad de México</option>
+                        <option value="America/Bogota">Colombia - Bogotá</option>
+                        <option value="America/Lima">Perú - Lima</option>
+                        <option value="America/Santiago">Chile - Santiago</option>
+                        <option value="America/Buenos_Aires">Argentina - Buenos Aires</option>
+                        <option value="America/Caracas">Venezuela - Caracas</option>
+                        <option value="America/Sao_Paulo">Brasil - São Paulo</option>
+                        <option value="Europe/Madrid">España - Madrid</option>
+                        <option value="Europe/London">Reino Unido - Londres</option>
+                        <option value="Europe/Paris">Francia - París</option>
+                        <option value="Asia/Tokyo">Japón - Tokio</option>
+                        <option value="Asia/Shanghai">China - Shanghái</option>
+                        <option value="Asia/Dubai">Emiratos Árabes - Dubái</option>
+                        <option value="Australia/Sydney">Australia - Sídney</option>
+                    </select>
+                </div>
+
+                <!-- Language Selection -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Idioma</h3>
+                    <select class="settings-select" id="languageSelect">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                        <option value="pt">Português</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+
+                <!-- Sound Settings -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Sonido</h3>
+                    <div class="settings-toggle">
+                        <label class="toggle-label">
+                            <span>Notificaciones de sonido</span>
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Background Settings -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Fondo</h3>
+                    <div class="settings-toggle">
+                        <label class="toggle-label">
+                            <span>Fondo animado</span>
+                            <input type="checkbox" id="backgroundToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p class="settings-hint">Desactiva para usar fondo negro sólido</p>
+                </div>
+            </div>
+
+            <div class="settings-footer">
+                <button class="settings-save-btn" id="saveSettings">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="glass-card">
+            <div class="clock-display">
+                <div class="clock-label" id="clockLabel">Guayaquil, Ecuador</div>
+                <div class="clock-time" id="clockTime">00:00:00</div>
+                <div class="clock-date" id="clockDate">Fecha</div>
+            </div>
+
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="timer">
+                    <span data-i18n="timer">Temporizador</span>
+                </button>
+                <button class="mode-btn" data-mode="pomodoro">
+                    <span data-i18n="pomodoro">Pomodoro</span>
+                </button>
+            </div>
+
+            <div class="timer-display">
+                <div class="time-circle">
+                    <svg class="progress-ring" width="280" height="280">
+                        <circle class="progress-ring-bg" cx="140" cy="140" r="120"></circle>
+                        <circle class="progress-ring-circle" cx="140" cy="140" r="120"></circle>
+                    </svg>
+                    <div class="time-text" id="timeDisplay">25:00</div>
+                </div>
+            </div>
+
+            <div class="timer-mode active" id="timerMode">
+                <div class="time-inputs">
+                    <div class="input-group">
+                        <label data-i18n="hours">Horas</label>
+                        <input type="number" id="hours" min="0" max="23" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="minutes">Minutos</label>
+                        <input type="number" id="minutes" min="0" max="59" value="25">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="seconds">Segundos</label>
+                        <input type="number" id="seconds" min="0" max="59" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pomodoro-mode" id="pomodoroMode">
+                <div class="pomodoro-stats">
+                    <div class="stat-item">
+                        <span class="stat-label" data-i18n="session">Sesión</span>
+                        <span class="stat-value" id="sessionCount">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label" data-i18n="type">Tipo</span>
+                        <span class="stat-value" id="sessionType" data-i18n="work">Trabajo</span>
+                    </div>
+                </div>
+
+                <div class="pomodoro-settings">
+                    <div class="setting-row">
+                        <label><span data-i18n="work">Trabajo</span> (min)</label>
+                        <input type="number" id="workDuration" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-row">
+                        <label><span data-i18n="break">Descanso</span> (min)</label>
+                        <input type="number" id="breakDuration" min="1" max="30" value="5">
+                    </div>
+                    <div class="setting-row">
+                        <label><span data-i18n="longBreak">Descanso largo</span> (min)</label>
+                        <input type="number" id="longBreakDuration" min="1" max="60" value="15">
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn start-btn" id="startBtn">
+                    <span class="btn-icon">▶</span>
+                    <span data-i18n="start">Iniciar</span>
+                </button>
+                <button class="control-btn pause-btn" id="pauseBtn" disabled>
+                    <span class="btn-icon">⏸</span>
+                    <span data-i18n="pause">Pausar</span>
+                </button>
+                <button class="control-btn reset-btn" id="resetBtn">
+                    <span class="btn-icon">↻</span>
+                    <span data-i18n="reset">Reiniciar</span>
+                </button>
+            </div>
+
+            <div class="task-section">
+                <h3 class="section-title" data-i18n="taskList">Lista de Tareas</h3>
+                <div class="task-input-container">
+                    <input type="text" class="task-input" id="taskInput" data-i18n-placeholder="addTask"
+                        placeholder="Agregar nueva tarea...">
+                    <button class="add-task-btn" id="addTaskBtn">
+                        <span>+</span>
+                    </button>
+                </div>
+                <div class="tasks-list" id="tasksList">
+                    <!-- Tasks will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
