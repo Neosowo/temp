@@ -130,6 +130,7 @@ let currentTimezone = 'America/Guayaquil';
 let currentLanguage = 'es';
 let soundEnabled = true;
 let backgroundEnabled = true;
+let customBgUrl = '';
 
 // Audio context
 let audioContext;
@@ -172,6 +173,7 @@ const timezoneSelect = document.getElementById('timezoneSelect');
 const languageSelect = document.getElementById('languageSelect');
 const soundToggle = document.getElementById('soundToggle');
 const backgroundToggle = document.getElementById('backgroundToggle');
+const customBgUrlInput = document.getElementById('customBgUrl');
 
 const progressCircle = document.querySelector('.progress-ring-circle');
 const radius = 120;
@@ -222,6 +224,7 @@ function loadSettings() {
         currentLanguage = settings.language || 'es';
         soundEnabled = settings.soundEnabled !== undefined ? settings.soundEnabled : true;
         backgroundEnabled = settings.backgroundEnabled !== undefined ? settings.backgroundEnabled : true;
+        customBgUrl = settings.customBgUrl || '';
     }
 
     const t = translations[currentLanguage];
@@ -261,6 +264,7 @@ function loadSettings() {
     // Apply theme and background settings
     applyTheme(currentTheme);
     applyBackgroundSetting(backgroundEnabled);
+    applyCustomBackground(customBgUrl);
 }
 
 // ===== THEME AND SETTINGS FUNCTIONS =====
@@ -309,6 +313,39 @@ function applyBackgroundSetting(enabled) {
     }
 }
 
+function applyCustomBackground(url) {
+    customBgUrl = url;
+    if (url && url.trim() !== '') {
+        // Remove gradient and apply custom background
+        document.body.classList.add('custom-bg');
+
+        // Create or update the style rule for custom background
+        let styleElement = document.getElementById('custom-bg-style');
+        if (!styleElement) {
+            styleElement = document.createElement('style');
+            styleElement.id = 'custom-bg-style';
+            document.head.appendChild(styleElement);
+        }
+
+        styleElement.textContent = `
+            body.custom-bg::before {
+                background: url('${url}') !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                animation: none !important;
+            }
+        `;
+    } else {
+        // Remove custom background and restore gradient
+        document.body.classList.remove('custom-bg');
+        const styleElement = document.getElementById('custom-bg-style');
+        if (styleElement) {
+            styleElement.remove();
+        }
+    }
+}
+
 function saveSettings() {
     // Get all settings values
     const settings = {
@@ -316,7 +353,8 @@ function saveSettings() {
         timezone: timezoneSelect.value,
         language: languageSelect.value,
         soundEnabled: soundToggle.checked,
-        backgroundEnabled: backgroundToggle.checked
+        backgroundEnabled: backgroundToggle.checked,
+        customBgUrl: customBgUrlInput.value.trim()
     };
 
     // Save to localStorage
@@ -326,9 +364,11 @@ function saveSettings() {
     currentTimezone = settings.timezone;
     currentLanguage = settings.language;
     soundEnabled = settings.soundEnabled;
+    customBgUrl = settings.customBgUrl;
 
     applyTheme(settings.theme);
     applyBackgroundSetting(settings.backgroundEnabled);
+    applyCustomBackground(settings.customBgUrl);
 
     // Update UI with new language
     loadSettings();
@@ -353,6 +393,9 @@ function syncSettingsUI() {
     // Sync toggles
     soundToggle.checked = soundEnabled;
     backgroundToggle.checked = backgroundEnabled;
+
+    // Sync custom background URL
+    customBgUrlInput.value = customBgUrl;
 }
 
 // ===== SETTINGS EVENT LISTENERS =====

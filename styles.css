@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
 :root {
@@ -1227,4 +1230,54 @@ body.no-animated-bg::before {
     50% {
         transform: translate(-50%, -50%) scale(1.1);
     }
+}
+/* Custom Background Section */
+.custom-bg-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-bg-label {
+    display: block;
+    color: var(--light-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.settings-input {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.settings-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.settings-input:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.settings-input:focus {
+    outline: none;
+    border-color: var(--light-purple);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(165, 145, 239, 0.3);
+}
+
+/* Custom background image */
+body.custom-bg::before {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    animation: none !important;
 }
