@@ -1,146 +1,145 @@
 // ===== TRANSLATIONS =====
 const translations = {
     es: {
-        timer: 'Temporizador',
+        timer: 'Timer',
         pomodoro: 'Pomodoro',
-        hours: 'Horas',
-        minutes: 'Minutos',
-        seconds: 'Segundos',
+        hours: 'h',
+        minutes: 'm',
+        seconds: 's',
         session: 'Sesión',
         type: 'Tipo',
         work: 'Trabajo',
         break: 'Descanso',
-        longBreak: 'Descanso largo',
+        longBreak: 'Largo',
         start: 'Iniciar',
         pause: 'Pausar',
         reset: 'Reiniciar',
-        taskList: 'Lista de Tareas',
-        addTask: 'Agregar nueva tarea...',
-        emptyTasks: 'No hay tareas. ¡Agrega una para empezar!',
+        taskList: 'Tareas',
+        addTask: 'Nueva tarea...',
+        emptyTasks: 'Sin tareas por ahora',
         timeComplete: '¡Tiempo completado!',
         goodWork: '¡Buen trabajo! Toma un descanso.',
-        timeUp: '¡Tiempo terminado!'
+        timeUp: '¡Tiempo terminado!',
+        focus: 'Enfócate'
     },
     en: {
         timer: 'Timer',
         pomodoro: 'Pomodoro',
-        hours: 'Hours',
-        minutes: 'Minutes',
-        seconds: 'Seconds',
+        hours: 'h',
+        minutes: 'm',
+        seconds: 's',
         session: 'Session',
         type: 'Type',
         work: 'Work',
         break: 'Break',
-        longBreak: 'Long break',
+        longBreak: 'Long',
         start: 'Start',
         pause: 'Pause',
         reset: 'Reset',
-        taskList: 'Task List',
-        addTask: 'Add new task...',
-        emptyTasks: 'No tasks. Add one to get started!',
+        taskList: 'Tasks',
+        addTask: 'New task...',
+        emptyTasks: 'No tasks yet',
         timeComplete: 'Time complete!',
         goodWork: 'Good work! Take a break.',
-        timeUp: 'Time is up!'
+        timeUp: 'Time is up!',
+        focus: 'Focus'
     },
     pt: {
-        timer: 'Temporizador',
+        timer: 'Timer',
         pomodoro: 'Pomodoro',
-        hours: 'Horas',
-        minutes: 'Minutos',
-        seconds: 'Segundos',
+        hours: 'h',
+        minutes: 'm',
+        seconds: 's',
         session: 'Sessão',
         type: 'Tipo',
         work: 'Trabalho',
         break: 'Pausa',
-        longBreak: 'Pausa longa',
+        longBreak: 'Longa',
         start: 'Iniciar',
         pause: 'Pausar',
         reset: 'Reiniciar',
-        taskList: 'Lista de Tarefas',
-        addTask: 'Adicionar nova tarefa...',
-        emptyTasks: 'Sem tarefas. Adicione uma para começar!',
+        taskList: 'Tarefas',
+        addTask: 'Nova tarefa...',
+        emptyTasks: 'Sem tarefas',
         timeComplete: 'Tempo completo!',
         goodWork: 'Bom trabalho! Faça uma pausa.',
-        timeUp: 'O tempo acabou!'
+        timeUp: 'O tempo acabou!',
+        focus: 'Foco'
     },
     fr: {
         timer: 'Minuteur',
         pomodoro: 'Pomodoro',
-        hours: 'Heures',
-        minutes: 'Minutes',
-        seconds: 'Secondes',
+        hours: 'h',
+        minutes: 'm',
+        seconds: 's',
         session: 'Session',
         type: 'Type',
         work: 'Travail',
         break: 'Pause',
-        longBreak: 'Longue pause',
+        longBreak: 'Longue',
         start: 'Démarrer',
         pause: 'Pause',
         reset: 'Réinitialiser',
-        taskList: 'Liste des tâches',
-        addTask: 'Ajouter une nouvelle tâche...',
-        emptyTasks: 'Aucune tâche. Ajoutez-en une pour commencer!',
+        taskList: 'Tâches',
+        addTask: 'Nouvelle tâche...',
+        emptyTasks: 'Aucune tâche',
         timeComplete: 'Temps terminé!',
         goodWork: 'Bon travail! Prenez une pause.',
-        timeUp: 'Le temps est écoulé!'
+        timeUp: 'Le temps est écoulé!',
+        focus: 'Concentrez-vous'
     }
 };
 
 // ===== TIMEZONE DATA =====
 const timezoneNames = {
-    'America/Guayaquil': { es: 'Guayaquil, Ecuador', en: 'Guayaquil, Ecuador', pt: 'Guayaquil, Equador', fr: 'Guayaquil, Équateur' },
-    'America/New_York': { es: 'Nueva York, EE.UU.', en: 'New York, USA', pt: 'Nova York, EUA', fr: 'New York, États-Unis' },
-    'America/Los_Angeles': { es: 'Los Ángeles, EE.UU.', en: 'Los Angeles, USA', pt: 'Los Angeles, EUA', fr: 'Los Angeles, États-Unis' },
-    'America/Chicago': { es: 'Chicago, EE.UU.', en: 'Chicago, USA', pt: 'Chicago, EUA', fr: 'Chicago, États-Unis' },
-    'America/Mexico_City': { es: 'Ciudad de México', en: 'Mexico City', pt: 'Cidade do México', fr: 'Mexico' },
-    'America/Bogota': { es: 'Bogotá, Colombia', en: 'Bogotá, Colombia', pt: 'Bogotá, Colômbia', fr: 'Bogotá, Colombie' },
-    'America/Lima': { es: 'Lima, Perú', en: 'Lima, Peru', pt: 'Lima, Peru', fr: 'Lima, Pérou' },
-    'America/Santiago': { es: 'Santiago, Chile', en: 'Santiago, Chile', pt: 'Santiago, Chile', fr: 'Santiago, Chili' },
-    'America/Buenos_Aires': { es: 'Buenos Aires, Argentina', en: 'Buenos Aires, Argentina', pt: 'Buenos Aires, Argentina', fr: 'Buenos Aires, Argentine' },
-    'America/Caracas': { es: 'Caracas, Venezuela', en: 'Caracas, Venezuela', pt: 'Caracas, Venezuela', fr: 'Caracas, Venezuela' },
-    'America/Sao_Paulo': { es: 'São Paulo, Brasil', en: 'São Paulo, Brazil', pt: 'São Paulo, Brasil', fr: 'São Paulo, Brésil' },
-    'Europe/Madrid': { es: 'Madrid, España', en: 'Madrid, Spain', pt: 'Madrid, Espanha', fr: 'Madrid, Espagne' },
-    'Europe/London': { es: 'Londres, Reino Unido', en: 'London, UK', pt: 'Londres, Reino Unido', fr: 'Londres, Royaume-Uni' },
-    'Europe/Paris': { es: 'París, Francia', en: 'Paris, France', pt: 'Paris, França', fr: 'Paris, France' },
-    'Asia/Tokyo': { es: 'Tokio, Japón', en: 'Tokyo, Japan', pt: 'Tóquio, Japão', fr: 'Tokyo, Japon' },
-    'Asia/Shanghai': { es: 'Shanghái, China', en: 'Shanghai, China', pt: 'Xangai, China', fr: 'Shanghai, Chine' },
-    'Asia/Dubai': { es: 'Dubái, EAU', en: 'Dubai, UAE', pt: 'Dubai, EAU', fr: 'Dubaï, EAU' },
-    'Australia/Sydney': { es: 'Sídney, Australia', en: 'Sydney, Australia', pt: 'Sydney, Austrália', fr: 'Sydney, Australie' }
+    'America/Guayaquil': { es: 'Guayaquil', en: 'Guayaquil', pt: 'Guayaquil', fr: 'Guayaquil' },
+    'America/New_York': { es: 'Nueva York', en: 'New York', pt: 'Nova York', fr: 'New York' },
+    'America/Los_Angeles': { es: 'Los Ángeles', en: 'Los Angeles', pt: 'Los Angeles', fr: 'Los Angeles' },
+    'America/Chicago': { es: 'Chicago', en: 'Chicago', pt: 'Chicago', fr: 'Chicago' },
+    'America/Mexico_City': { es: 'CDMX', en: 'Mexico City', pt: 'Cidade do México', fr: 'Mexico' },
+    'America/Bogota': { es: 'Bogotá', en: 'Bogotá', pt: 'Bogotá', fr: 'Bogotá' },
+    'America/Lima': { es: 'Lima', en: 'Lima', pt: 'Lima', fr: 'Lima' },
+    'America/Santiago': { es: 'Santiago', en: 'Santiago', pt: 'Santiago', fr: 'Santiago' },
+    'America/Buenos_Aires': { es: 'Buenos Aires', en: 'Buenos Aires', pt: 'Buenos Aires', fr: 'Buenos Aires' },
+    'America/Caracas': { es: 'Caracas', en: 'Caracas', pt: 'Caracas', fr: 'Caracas' },
+    'America/Sao_Paulo': { es: 'São Paulo', en: 'São Paulo', pt: 'São Paulo', fr: 'São Paulo' },
+    'Europe/Madrid': { es: 'Madrid', en: 'Madrid', pt: 'Madrid', fr: 'Madrid' },
+    'Europe/London': { es: 'Londres', en: 'London', pt: 'Londres', fr: 'Londres' },
+    'Europe/Paris': { es: 'París', en: 'Paris', pt: 'Paris', fr: 'Paris' },
+    'Asia/Tokyo': { es: 'Tokio', en: 'Tokyo', pt: 'Tóquio', fr: 'Tokyo' },
+    'Asia/Shanghai': { es: 'Shanghái', en: 'Shanghai', pt: 'Xangai', fr: 'Shanghai' },
+    'Asia/Dubai': { es: 'Dubái', en: 'Dubai', pt: 'Dubai', fr: 'Dubaï' },
+    'Australia/Sydney': { es: 'Sídney', en: 'Sydney', pt: 'Sydney', fr: 'Sydney' }
 };
 
-// ===== STATE MANAGEMENT =====
+// ===== STATE =====
 let timerInterval = null;
 let totalSeconds = 0;
 let remainingSeconds = 0;
 let isRunning = false;
 let currentMode = 'timer';
 
-// Pomodoro state
 let pomodoroSession = 1;
 let pomodoroType = 'work';
 let completedPomodoros = 0;
 
-// Tasks state
 let tasks = [];
 let taskIdCounter = 0;
 
-// Settings state
 let currentTheme = 'purple';
 let currentTimezone = 'America/Guayaquil';
 let currentLanguage = 'es';
 let soundEnabled = true;
 let backgroundEnabled = true;
-let customBgUrl = '';
 
-// Audio context
 let audioContext;
-let hasInteracted = false;
 
 // ===== DOM ELEMENTS =====
 const timeDisplay = document.getElementById('timeDisplay');
+const timerLabel = document.getElementById('timerLabel');
 const startBtn = document.getElementById('startBtn');
-const pauseBtn = document.getElementById('pauseBtn');
 const resetBtn = document.getElementById('resetBtn');
+const skipBtn = document.getElementById('skipBtn');
 
 const hoursInput = document.getElementById('hours');
 const minutesInput = document.getElementById('minutes');
@@ -163,272 +162,172 @@ const clockLabelDisplay = document.getElementById('clockLabel');
 const taskInput = document.getElementById('taskInput');
 const addTaskBtn = document.getElementById('addTaskBtn');
 const tasksList = document.getElementById('tasksList');
+const taskCountBadge = document.getElementById('taskCount');
+
+const tasksToggle = document.getElementById('tasksToggle');
+const tasksDrawer = document.getElementById('tasksDrawer');
+const closeDrawer = document.getElementById('closeDrawer');
 
 const settingsBtn = document.getElementById('settingsBtn');
 const settingsModal = document.getElementById('settingsModal');
-const closeSettingsBtn = document.getElementById('closeSettings');
 const saveSettingsBtn = document.getElementById('saveSettings');
 
 const timezoneSelect = document.getElementById('timezoneSelect');
 const languageSelect = document.getElementById('languageSelect');
 const soundToggle = document.getElementById('soundToggle');
 const backgroundToggle = document.getElementById('backgroundToggle');
-const customBgUrlInput = document.getElementById('customBgUrl');
 
-const progressCircle = document.querySelector('.progress-ring-circle');
-const radius = 120;
+const progressCircle = document.querySelector('.ring-progress');
+const radius = 90;
 const circumference = 2 * Math.PI * radius;
 
 // ===== INITIALIZATION =====
-progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+progressCircle.style.strokeDasharray = `${circumference}`;
 progressCircle.style.strokeDashoffset = 0;
 
-// Add gradient to SVG
-const svg = document.querySelector('.progress-ring');
-const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-gradient.setAttribute('id', 'gradient');
-gradient.setAttribute('x1', '0%');
-gradient.setAttribute('y1', '0%');
-gradient.setAttribute('x2', '100%');
-gradient.setAttribute('y2', '100%');
-
-const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-stop1.setAttribute('offset', '0%');
-stop1.setAttribute('style', 'stop-color:#a591ef;stop-opacity:1');
-
-const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-stop2.setAttribute('offset', '100%');
-stop2.setAttribute('style', 'stop-color:#6c5fcf;stop-opacity:1');
-
-gradient.appendChild(stop1);
-gradient.appendChild(stop2);
-defs.appendChild(gradient);
-svg.insertBefore(defs, svg.firstChild);
-
-// Initialize audio context on first interaction
-document.addEventListener('click', () => {
-    if (!hasInteracted) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        hasInteracted = true;
-    }
-}, { once: true });
-
-// ===== SETTINGS FUNCTIONS =====
+// ===== SETTINGS =====
 function loadSettings() {
-    const savedSettings = localStorage.getItem('timerSettings');
-    if (savedSettings) {
-        const settings = JSON.parse(savedSettings);
-        currentTheme = settings.theme || 'purple';
-        currentTimezone = settings.timezone || 'America/Guayaquil';
-        currentLanguage = settings.language || 'es';
-        soundEnabled = settings.soundEnabled !== undefined ? settings.soundEnabled : true;
-        backgroundEnabled = settings.backgroundEnabled !== undefined ? settings.backgroundEnabled : true;
-        customBgUrl = settings.customBgUrl || '';
+    const saved = localStorage.getItem('timerSettings');
+    if (saved) {
+        const s = JSON.parse(saved);
+        currentTheme = s.theme || 'purple';
+        currentTimezone = s.timezone || 'America/Guayaquil';
+        currentLanguage = s.language || 'es';
+        soundEnabled = s.soundEnabled !== undefined ? s.soundEnabled : true;
+        backgroundEnabled = s.backgroundEnabled !== undefined ? s.backgroundEnabled : true;
     }
 
+    applyTheme(currentTheme);
+    applyBackground(backgroundEnabled);
+    updateTranslations();
+    updateClockLabel();
+}
+
+function updateTranslations() {
     const t = translations[currentLanguage];
 
-    // Update all translatable elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-            el.textContent = t[key];
-        }
+        if (t[key]) el.textContent = t[key];
     });
 
-    // Update placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
-        if (t[key]) {
-            el.placeholder = t[key];
-        }
+        if (t[key]) el.placeholder = t[key];
     });
 
-    // Update clock label
-    updateClockLabel();
-
-    // Update empty state if visible
     if (tasks.length === 0) {
-        tasksList.innerHTML = `<div class="empty-state">${t.emptyTasks}</div>`;
+        tasksList.innerHTML = `<li class="empty-tasks">${t.emptyTasks}</li>`;
     }
-
-    function updateClockLabel() {
-        const t = translations[currentLanguage];
-        const tzName = timezoneNames[currentTimezone];
-        if (tzName && tzName[currentLanguage]) {
-            clockLabelDisplay.textContent = tzName[currentLanguage];
-        }
-    }
-
-    // Apply theme and background settings
-    applyTheme(currentTheme);
-    applyBackgroundSetting(backgroundEnabled);
-    applyCustomBackground(customBgUrl);
 }
 
-// ===== THEME AND SETTINGS FUNCTIONS =====
-function applyTheme(themeName) {
-    currentTheme = themeName;
-    document.body.setAttribute('data-theme', themeName);
+function updateClockLabel() {
+    const tzName = timezoneNames[currentTimezone];
+    if (tzName && tzName[currentLanguage]) {
+        clockLabelDisplay.textContent = tzName[currentLanguage];
+    }
+}
 
-    // Update active theme card
-    document.querySelectorAll('.theme-card').forEach(card => {
-        card.classList.remove('active');
-        if (card.dataset.theme === themeName) {
-            card.classList.add('active');
-        }
+function applyTheme(theme) {
+    currentTheme = theme;
+    document.body.setAttribute('data-theme', theme);
+
+    document.querySelectorAll('.theme-dot').forEach(dot => {
+        dot.classList.toggle('active', dot.dataset.theme === theme);
     });
 
-    // Update SVG gradient colors based on theme
-    updateGradientColors(themeName);
+    updateGradientColors(theme);
 }
 
-function updateGradientColors(themeName) {
-    const themeColors = {
-        purple: { start: '#a591ef', end: '#6c5fcf' },
-        ocean: { start: '#00a8e8', end: '#0077be' },
-        sunset: { start: '#ff8e53', end: '#ff6b6b' },
-        forest: { start: '#52b788', end: '#2d6a4f' },
-        rose: { start: '#f472b6', end: '#d946ef' },
-        midnight: { start: '#a78bfa', end: '#7c3aed' }
+function updateGradientColors(theme) {
+    const colors = {
+        purple: ['#a855f7', '#38bdf8', '#f472b6'],
+        ocean: ['#22d3ee', '#3b82f6', '#06b6d4'],
+        sunset: ['#fb923c', '#f43f5e', '#fbbf24'],
+        forest: ['#4ade80', '#2dd4bf', '#a3e635'],
+        rose: ['#f472b6', '#c084fc', '#fb7185'],
+        midnight: ['#818cf8', '#a78bfa', '#60a5fa']
     };
 
-    const colors = themeColors[themeName] || themeColors.purple;
-    const stop1 = document.querySelector('#gradient stop:first-child');
-    const stop2 = document.querySelector('#gradient stop:last-child');
+    const c = colors[theme] || colors.purple;
+    const stops = document.querySelectorAll('#gradient stop');
 
-    if (stop1 && stop2) {
-        stop1.setAttribute('style', `stop-color:${colors.start};stop-opacity:1`);
-        stop2.setAttribute('style', `stop-color:${colors.end};stop-opacity:1`);
+    if (stops.length >= 3) {
+        stops[0].style.stopColor = c[0];
+        stops[1].style.stopColor = c[1];
+        stops[2].style.stopColor = c[2];
     }
 }
 
-function applyBackgroundSetting(enabled) {
+function applyBackground(enabled) {
     backgroundEnabled = enabled;
-    if (enabled) {
-        document.body.classList.remove('no-animated-bg');
-    } else {
-        document.body.classList.add('no-animated-bg');
-    }
-}
-
-function applyCustomBackground(url) {
-    customBgUrl = url;
-    if (url && url.trim() !== '') {
-        // Remove gradient and apply custom background
-        document.body.classList.add('custom-bg');
-
-        // Create or update the style rule for custom background
-        let styleElement = document.getElementById('custom-bg-style');
-        if (!styleElement) {
-            styleElement = document.createElement('style');
-            styleElement.id = 'custom-bg-style';
-            document.head.appendChild(styleElement);
-        }
-
-        styleElement.textContent = `
-            body.custom-bg::before {
-                background: url('${url}') !important;
-                background-size: cover !important;
-                background-position: center !important;
-                background-repeat: no-repeat !important;
-                animation: none !important;
-            }
-        `;
-    } else {
-        // Remove custom background and restore gradient
-        document.body.classList.remove('custom-bg');
-        const styleElement = document.getElementById('custom-bg-style');
-        if (styleElement) {
-            styleElement.remove();
-        }
-    }
+    document.body.classList.toggle('no-animated-bg', !enabled);
 }
 
 function saveSettings() {
-    // Get all settings values
     const settings = {
         theme: currentTheme,
         timezone: timezoneSelect.value,
         language: languageSelect.value,
         soundEnabled: soundToggle.checked,
-        backgroundEnabled: backgroundToggle.checked,
-        customBgUrl: customBgUrlInput.value.trim()
+        backgroundEnabled: backgroundToggle.checked
     };
 
-    // Save to localStorage
     localStorage.setItem('timerSettings', JSON.stringify(settings));
 
-    // Apply settings
     currentTimezone = settings.timezone;
     currentLanguage = settings.language;
     soundEnabled = settings.soundEnabled;
-    customBgUrl = settings.customBgUrl;
 
     applyTheme(settings.theme);
-    applyBackgroundSetting(settings.backgroundEnabled);
-    applyCustomBackground(settings.customBgUrl);
+    applyBackground(settings.backgroundEnabled);
+    updateTranslations();
+    updateClockLabel();
 
-    // Update UI with new language
-    loadSettings();
-
-    // Close modal
-    settingsModal.classList.remove('active');
+    settingsModal.classList.remove('open');
 }
 
 function syncSettingsUI() {
-    // Sync theme cards
-    document.querySelectorAll('.theme-card').forEach(card => {
-        card.classList.remove('active');
-        if (card.dataset.theme === currentTheme) {
-            card.classList.add('active');
-        }
+    document.querySelectorAll('.theme-dot').forEach(dot => {
+        dot.classList.toggle('active', dot.dataset.theme === currentTheme);
     });
-
-    // Sync select inputs
     timezoneSelect.value = currentTimezone;
     languageSelect.value = currentLanguage;
-
-    // Sync toggles
     soundToggle.checked = soundEnabled;
     backgroundToggle.checked = backgroundEnabled;
-
-    // Sync custom background URL
-    customBgUrlInput.value = customBgUrl;
 }
 
-// ===== SETTINGS EVENT LISTENERS =====
+// ===== SETTINGS EVENTS =====
 settingsBtn.addEventListener('click', () => {
     syncSettingsUI();
-    settingsModal.classList.add('active');
+    settingsModal.classList.add('open');
 });
 
-closeSettingsBtn.addEventListener('click', () => {
-    settingsModal.classList.remove('active');
-});
-
-settingsModal.addEventListener('click', (e) => {
+settingsModal.addEventListener('click', e => {
     if (e.target === settingsModal) {
-        settingsModal.classList.remove('active');
+        settingsModal.classList.remove('open');
     }
 });
 
-// Theme card click handlers
-document.querySelectorAll('.theme-card').forEach(card => {
-    card.addEventListener('click', () => {
-        currentTheme = card.dataset.theme;
-        document.querySelectorAll('.theme-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
+document.querySelectorAll('.theme-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+        currentTheme = dot.dataset.theme;
+        applyTheme(currentTheme);
     });
 });
 
-// Save settings button
 saveSettingsBtn.addEventListener('click', saveSettings);
 
+// ===== TASKS DRAWER =====
+tasksToggle.addEventListener('click', () => {
+    tasksDrawer.classList.add('open');
+});
 
+closeDrawer.addEventListener('click', () => {
+    tasksDrawer.classList.remove('open');
+});
 
-// ===== CLOCK FUNCTIONALITY =====
+// ===== CLOCK =====
 function updateClock() {
     const now = new Date();
     const timeString = now.toLocaleString('en-US', { timeZone: currentTimezone });
@@ -436,14 +335,12 @@ function updateClock() {
 
     const hours = localTime.getHours().toString().padStart(2, '0');
     const minutes = localTime.getMinutes().toString().padStart(2, '0');
-    const seconds = localTime.getSeconds().toString().padStart(2, '0');
 
-    clockTimeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+    clockTimeDisplay.textContent = `${hours}:${minutes}`;
 
     const dateOptions = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
+        weekday: 'short',
+        month: 'short',
         day: 'numeric',
         timeZone: currentTimezone
     };
@@ -453,14 +350,13 @@ function updateClock() {
     else if (currentLanguage === 'pt') locale = 'pt-BR';
     else if (currentLanguage === 'fr') locale = 'fr-FR';
 
-    const dateString = localTime.toLocaleDateString(locale, dateOptions);
-    clockDateDisplay.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+    clockDateDisplay.textContent = localTime.toLocaleDateString(locale, dateOptions);
 }
 
 setInterval(updateClock, 1000);
 updateClock();
 
-// ===== AUDIO NOTIFICATION =====
+// ===== AUDIO =====
 function playNotificationSound() {
     if (!soundEnabled) return;
 
@@ -468,47 +364,45 @@ function playNotificationSound() {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
 
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
 
-    oscillator.frequency.value = 800;
-    oscillator.type = 'sine';
+    osc.frequency.value = 800;
+    osc.type = 'sine';
 
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+    gain.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
 
-    oscillator.start(audioContext.currentTime);
-    oscillator.stop(audioContext.currentTime + 0.5);
+    osc.start(audioContext.currentTime);
+    osc.stop(audioContext.currentTime + 0.5);
 
     setTimeout(() => {
-        const oscillator2 = audioContext.createOscillator();
-        const gainNode2 = audioContext.createGain();
+        const osc2 = audioContext.createOscillator();
+        const gain2 = audioContext.createGain();
 
-        oscillator2.connect(gainNode2);
-        gainNode2.connect(audioContext.destination);
+        osc2.connect(gain2);
+        gain2.connect(audioContext.destination);
 
-        oscillator2.frequency.value = 1000;
-        oscillator2.type = 'sine';
+        osc2.frequency.value = 1000;
+        osc2.type = 'sine';
 
-        gainNode2.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+        gain2.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
 
-        oscillator2.start(audioContext.currentTime);
-        oscillator2.stop(audioContext.currentTime + 0.5);
+        osc2.start(audioContext.currentTime);
+        osc2.stop(audioContext.currentTime + 0.5);
     }, 200);
 }
 
-// ===== TIMER FUNCTIONS =====
-document.querySelectorAll('.mode-btn').forEach(btn => {
+// ===== MODE SWITCHING =====
+document.querySelectorAll('.pill').forEach(btn => {
     btn.addEventListener('click', () => {
-        if (isRunning) {
-            stopTimer();
-        }
+        if (isRunning) stopTimer();
 
-        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
         currentMode = btn.dataset.mode;
@@ -525,11 +419,34 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
     });
 });
 
+// ===== PICKER BUTTONS =====
+document.querySelectorAll('.picker-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        const action = btn.dataset.action;
+        const input = document.getElementById(target);
+        let value = parseInt(input.value) || 0;
+
+        if (action === 'up') {
+            value++;
+            if (target === 'hours' && value > 23) value = 0;
+            if ((target === 'minutes' || target === 'seconds') && value > 59) value = 0;
+        } else {
+            value--;
+            if (value < 0) {
+                if (target === 'hours') value = 23;
+                else value = 59;
+            }
+        }
+
+        input.value = value;
+        if (!isRunning) updateTimerDisplay();
+    });
+});
+
 [hoursInput, minutesInput, secondsInput].forEach(input => {
     input.addEventListener('input', () => {
-        if (!isRunning) {
-            updateTimerDisplay();
-        }
+        if (!isRunning) updateTimerDisplay();
     });
 });
 
@@ -541,16 +458,13 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
     });
 });
 
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-resetBtn.addEventListener('click', resetTimer);
-
+// ===== TIMER FUNCTIONS =====
 function updateTimerDisplay() {
-    const hours = parseInt(hoursInput.value) || 0;
-    const minutes = parseInt(minutesInput.value) || 0;
-    const seconds = parseInt(secondsInput.value) || 0;
+    const h = parseInt(hoursInput.value) || 0;
+    const m = parseInt(minutesInput.value) || 0;
+    const s = parseInt(secondsInput.value) || 0;
 
-    totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    totalSeconds = h * 3600 + m * 60 + s;
     remainingSeconds = totalSeconds;
 
     displayTime(remainingSeconds);
@@ -581,7 +495,7 @@ function displayTime(seconds) {
     const secs = seconds % 60;
 
     if (hrs > 0) {
-        timeDisplay.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        timeDisplay.textContent = `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     } else {
         timeDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     }
@@ -604,25 +518,43 @@ function updatePomodoroStats() {
 
     if (pomodoroType === 'work') {
         sessionTypeDisplay.textContent = t.work;
+        timerLabel.textContent = t.focus;
     } else if (pomodoroType === 'longBreak') {
         sessionTypeDisplay.textContent = t.longBreak;
+        timerLabel.textContent = t.break;
     } else {
         sessionTypeDisplay.textContent = t.break;
+        timerLabel.textContent = t.break;
     }
 }
 
+// ===== TIMER CONTROLS =====
+startBtn.addEventListener('click', () => {
+    if (isRunning) {
+        pauseTimer();
+    } else {
+        startTimer();
+    }
+});
+
+resetBtn.addEventListener('click', resetTimer);
+
+skipBtn.addEventListener('click', () => {
+    if (currentMode === 'pomodoro') {
+        handlePomodoroComplete();
+    }
+});
+
 function startTimer() {
     if (currentMode === 'timer') {
-        const hours = parseInt(hoursInput.value) || 0;
-        const minutes = parseInt(minutesInput.value) || 0;
-        const seconds = parseInt(secondsInput.value) || 0;
+        const h = parseInt(hoursInput.value) || 0;
+        const m = parseInt(minutesInput.value) || 0;
+        const s = parseInt(secondsInput.value) || 0;
 
-        if (hours === 0 && minutes === 0 && seconds === 0) {
-            return;
-        }
+        if (h === 0 && m === 0 && s === 0) return;
 
         if (!isRunning) {
-            totalSeconds = hours * 3600 + minutes * 60 + seconds;
+            totalSeconds = h * 3600 + m * 60 + s;
             remainingSeconds = totalSeconds;
         }
     } else {
@@ -631,13 +563,10 @@ function startTimer() {
         }
     }
 
-    if (remainingSeconds === 0) {
-        return;
-    }
+    if (remainingSeconds === 0) return;
 
     isRunning = true;
-    startBtn.disabled = true;
-    pauseBtn.disabled = false;
+    updatePlayPauseIcon();
 
     timerInterval = setInterval(() => {
         remainingSeconds--;
@@ -657,8 +586,7 @@ function pauseTimer() {
 function stopTimer() {
     isRunning = false;
     clearInterval(timerInterval);
-    startBtn.disabled = false;
-    pauseBtn.disabled = true;
+    updatePlayPauseIcon();
 }
 
 function resetTimer() {
@@ -680,7 +608,6 @@ function resetPomodoro() {
 
 function timerComplete() {
     stopTimer();
-
     playNotificationSound();
 
     const t = translations[currentLanguage];
@@ -690,11 +617,6 @@ function timerComplete() {
         });
     }
 
-    timeDisplay.style.animation = 'pulse 0.5s ease-in-out 3';
-    setTimeout(() => {
-        timeDisplay.style.animation = '';
-    }, 1500);
-
     if (currentMode === 'pomodoro') {
         handlePomodoroComplete();
     }
@@ -703,12 +625,7 @@ function timerComplete() {
 function handlePomodoroComplete() {
     if (pomodoroType === 'work') {
         completedPomodoros++;
-
-        if (completedPomodoros % 4 === 0) {
-            pomodoroType = 'longBreak';
-        } else {
-            pomodoroType = 'break';
-        }
+        pomodoroType = completedPomodoros % 4 === 0 ? 'longBreak' : 'break';
     } else {
         pomodoroType = 'work';
         pomodoroSession++;
@@ -717,14 +634,31 @@ function handlePomodoroComplete() {
     updatePomodoroDisplay();
 }
 
-// ===== TASK MANAGEMENT =====
+function updatePlayPauseIcon() {
+    const playIcon = startBtn.querySelector('.icon-play');
+    const pauseIcon = startBtn.querySelector('.icon-pause');
+
+    if (isRunning) {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+    } else {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+    }
+}
+
+// ===== TASKS =====
 function loadTasks() {
-    const savedTasks = localStorage.getItem('aestheticTimerTasks');
-    if (savedTasks) {
-        tasks = JSON.parse(savedTasks);
+    const saved = localStorage.getItem('aestheticTimerTasks');
+    if (saved) {
+        tasks = JSON.parse(saved);
         taskIdCounter = tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 0;
         renderTasks();
+    } else {
+        const t = translations[currentLanguage];
+        tasksList.innerHTML = `<li class="empty-tasks">${t.emptyTasks}</li>`;
     }
+    updateTaskCount();
 }
 
 function saveTasks() {
@@ -732,23 +666,18 @@ function saveTasks() {
 }
 
 function addTask() {
-    const taskText = taskInput.value.trim();
+    const text = taskInput.value.trim();
+    if (!text) return;
 
-    if (taskText === '') {
-        return;
-    }
-
-    const newTask = {
+    tasks.push({
         id: taskIdCounter++,
-        text: taskText,
-        completed: false,
-        createdAt: new Date().toISOString()
-    };
+        text: text,
+        completed: false
+    });
 
-    tasks.push(newTask);
     saveTasks();
     renderTasks();
-
+    updateTaskCount();
     taskInput.value = '';
 }
 
@@ -758,6 +687,7 @@ function toggleTask(taskId) {
         task.completed = !task.completed;
         saveTasks();
         renderTasks();
+        updateTaskCount();
     }
 }
 
@@ -765,23 +695,30 @@ function deleteTask(taskId) {
     tasks = tasks.filter(t => t.id !== taskId);
     saveTasks();
     renderTasks();
+    updateTaskCount();
 }
 
 function renderTasks() {
     const t = translations[currentLanguage];
 
     if (tasks.length === 0) {
-        tasksList.innerHTML = `<div class="empty-state">${t.emptyTasks}</div>`;
+        tasksList.innerHTML = `<li class="empty-tasks">${t.emptyTasks}</li>`;
         return;
     }
 
     tasksList.innerHTML = tasks.map(task => `
-        <div class="task-item ${task.completed ? 'completed' : ''}" data-task-id="${task.id}">
-            <div class="task-checkbox ${task.completed ? 'checked' : ''}" onclick="toggleTask(${task.id})"></div>
-            <div class="task-text">${escapeHtml(task.text)}</div>
+        <li class="${task.completed ? 'completed' : ''}">
+            <span class="task-check ${task.completed ? 'checked' : ''}" onclick="toggleTask(${task.id})"></span>
+            <span class="task-text">${escapeHtml(task.text)}</span>
             <button class="task-delete" onclick="deleteTask(${task.id})">×</button>
-        </div>
+        </li>
     `).join('');
+}
+
+function updateTaskCount() {
+    const pending = tasks.filter(t => !t.completed).length;
+    taskCountBadge.textContent = pending;
+    taskCountBadge.classList.toggle('visible', pending > 0);
 }
 
 function escapeHtml(text) {
@@ -792,18 +729,22 @@ function escapeHtml(text) {
 
 addTaskBtn.addEventListener('click', addTask);
 
-taskInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        addTask();
-    }
+taskInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') addTask();
 });
 
-// Request notification permission
+// ===== NOTIFICATION PERMISSION =====
 if ('Notification' in window && Notification.permission === 'default') {
-    Notification.requestPermission();
+    document.addEventListener('click', () => {
+        Notification.requestPermission();
+    }, { once: true });
 }
 
-// ===== INITIALIZE APP =====
+// ===== INIT =====
 loadSettings();
-updateTimerDisplay();
 loadTasks();
+updateTimerDisplay();
+
+// Make functions global for onclick handlers
+window.toggleTask = toggleTask;
+window.deleteTask = deleteTask;

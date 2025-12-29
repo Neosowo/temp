@@ -4,46 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temp</title>
+    <title>Tempo — Focus Timer</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Temporizador y Pomodoro ">
-    <meta name="keywords" content="temporizador, pomodoro, timer, reloj, aesthetic, productividad">
-    <meta name="author" content="Temp Timer">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://neosowo.github.io/temp/">
-    <meta property="og:title" content="Temp">
-    <meta property="og:description" content="Temporizador y Pomodoro ">
-    <meta property="og:image" content="https://neosowo.github.io/temp/favicon.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Temp Timer">
-    <meta property="og:locale" content="es_ES">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://neosowo.github.io/temp/">
-    <meta name="twitter:title" content="Temp">
-    <meta name="twitter:description" content="Temporizador y Pomodoro ">
-    <meta name="twitter:image" content="https://neosowo.github.io/temp/favicon.webp">
-
-    <!-- Discord Embed Color -->
-    <meta name="theme-color" content="#6b5ccc">
+    <meta name="description" content="Temporizador minimalista y aesthetic para productividad">
+    <meta name="keywords" content="temporizador, pomodoro, timer, focus, aesthetic, productividad">
+    <meta name="author" content="Tempo">
+    <meta name="theme-color" content="#8b5cf6">
 
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="favicon.webp">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
-    <div class="background-overlay"></div>
+    <!-- Animated Background -->
+    <div class="bg-layer">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
 
-    <button class="settings-btn" id="settingsBtn" title="Configuración">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
+    <!-- Settings Floating Button -->
+    <button class="fab-settings" id="settingsBtn" aria-label="Configuración">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="3"></circle>
             <path
                 d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
@@ -51,244 +36,209 @@
         </svg>
     </button>
 
-    <div class="settings-modal" id="settingsModal">
-        <div class="settings-content">
-            <div class="settings-header">
-                <h2>Configuración</h2>
-                <button class="close-settings" id="closeSettings">×</button>
-            </div>
+    <!-- Tasks Toggle Button -->
+    <button class="fab-tasks" id="tasksToggle" aria-label="Tareas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+        <span class="task-count" id="taskCount">0</span>
+    </button>
 
-            <div class="settings-body">
-                <!-- Theme Selection -->
-                <div class="settings-section">
-                    <h3 class="settings-section-title">Temas de Color</h3>
-                    <div class="theme-grid">
-                        <div class="theme-card active" data-theme="purple" title="Púrpura Aesthetic">
-                            <div class="theme-preview">
-                                <div class="theme-color" style="background: #6c5fcf;"></div>
-                                <div class="theme-color" style="background: #a591ef;"></div>
-                                <div class="theme-color" style="background: #acb3f6;"></div>
-                            </div>
-                            <span class="theme-name">Púrpura</span>
-                        </div>
-                        <div class="theme-card" data-theme="ocean" title="Océano Profundo">
-                            <div class="theme-preview">
-                                <div class="theme-color" style="background: #0077be;"></div>
-                                <div class="theme-color" style="background: #00a8e8;"></div>
-                                <div class="theme-color" style="background: #7dd3fc;"></div>
-                            </div>
-                            <span class="theme-name">Océano</span>
-                        </div>
-                        <div class="theme-card" data-theme="sunset" title="Atardecer Cálido">
-                            <div class="theme-preview">
-                                <div class="theme-color" style="background: #ff6b6b;"></div>
-                                <div class="theme-color" style="background: #ff8e53;"></div>
-                                <div class="theme-color" style="background: #ffd93d;"></div>
-                            </div>
-                            <span class="theme-name">Atardecer</span>
-                        </div>
-                        <div class="theme-card" data-theme="forest" title="Bosque Místico">
-                            <div class="theme-preview">
-                                <div class="theme-color" style="background: #2d6a4f;"></div>
-                                <div class="theme-color" style="background: #52b788;"></div>
-                                <div class="theme-color" style="background: #95d5b2;"></div>
-                            </div>
-                            <span class="theme-name">Bosque</span>
-                        </div>
-                        <div class="theme-card" data-theme="rose" title="Rosa Elegante">
-                            <div class="theme-preview">
-                                <div class="theme-color" style="background: #d946ef;"></div>
-                                <div class="theme-color" style="background: #f472b6;"></div>
-                                <div class="theme-color" style="background: #fda4af;"></div>
-                            </div>
-                            <span class="theme-name">Rosa</span>
-                        </div>
-                        <div class="theme-card" data-theme="midnight" title="Medianoche">
-                            <div class="theme-preview">
-                                <div class="theme-color" style="background: #4c1d95;"></div>
-                                <div class="theme-color" style="background: #7c3aed;"></div>
-                                <div class="theme-color" style="background: #a78bfa;"></div>
-                            </div>
-                            <span class="theme-name">Medianoche</span>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Clock Row -->
+        <div class="clock-row">
+            <span class="clock-location" id="clockLabel">Guayaquil</span>
+            <span class="clock-time" id="clockTime">00:00</span>
+            <span class="clock-date" id="clockDate">—</span>
+        </div>
+
+        <!-- Central Timer -->
+        <div class="timer-hero">
+            <div class="timer-ring">
+                <svg class="progress-svg" viewBox="0 0 200 200">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8b5cf6" />
+                            <stop offset="50%" style="stop-color:#06b6d4" />
+                            <stop offset="100%" style="stop-color:#8b5cf6" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="ring-bg" cx="100" cy="100" r="90"></circle>
+                    <circle class="ring-progress" cx="100" cy="100" r="90"></circle>
+                </svg>
+                <div class="timer-content">
+                    <div class="timer-time" id="timeDisplay">25:00</div>
+                    <div class="timer-label" id="timerLabel" data-i18n="focus">Enfócate</div>
                 </div>
-
-                <!-- Country/Timezone Selection -->
-                <div class="settings-section">
-                    <h3 class="settings-section-title">País y Zona Horaria</h3>
-                    <select class="settings-select" id="timezoneSelect">
-                        <option value="America/Guayaquil">Ecuador - Guayaquil</option>
-                        <option value="America/New_York">Estados Unidos - Nueva York</option>
-                        <option value="America/Los_Angeles">Estados Unidos - Los Ángeles</option>
-                        <option value="America/Chicago">Estados Unidos - Chicago</option>
-                        <option value="America/Mexico_City">México - Ciudad de México</option>
-                        <option value="America/Bogota">Colombia - Bogotá</option>
-                        <option value="America/Lima">Perú - Lima</option>
-                        <option value="America/Santiago">Chile - Santiago</option>
-                        <option value="America/Buenos_Aires">Argentina - Buenos Aires</option>
-                        <option value="America/Caracas">Venezuela - Caracas</option>
-                        <option value="America/Sao_Paulo">Brasil - São Paulo</option>
-                        <option value="Europe/Madrid">España - Madrid</option>
-                        <option value="Europe/London">Reino Unido - Londres</option>
-                        <option value="Europe/Paris">Francia - París</option>
-                        <option value="Asia/Tokyo">Japón - Tokio</option>
-                        <option value="Asia/Shanghai">China - Shanghái</option>
-                        <option value="Asia/Dubai">Emiratos Árabes - Dubái</option>
-                        <option value="Australia/Sydney">Australia - Sídney</option>
-                    </select>
-                </div>
-
-                <!-- Language Selection -->
-                <div class="settings-section">
-                    <h3 class="settings-section-title">Idioma</h3>
-                    <select class="settings-select" id="languageSelect">
-                        <option value="es">Español</option>
-                        <option value="en">English</option>
-                        <option value="pt">Português</option>
-                        <option value="fr">Français</option>
-                    </select>
-                </div>
-
-                <!-- Sound Settings -->
-                <div class="settings-section">
-                    <h3 class="settings-section-title">Sonido</h3>
-                    <div class="settings-toggle">
-                        <label class="toggle-label">
-                            <span>Notificaciones de sonido</span>
-                            <input type="checkbox" id="soundToggle" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Background Settings -->
-                <div class="settings-section">
-                    <h3 class="settings-section-title">Fondo</h3>
-                    <div class="settings-toggle">
-                        <label class="toggle-label">
-                            <span>Fondo animado</span>
-                            <input type="checkbox" id="backgroundToggle" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <p class="settings-hint">Desactiva para usar fondo negro sólido</p>
-
-                    <div class="custom-bg-section">
-                        <label class="custom-bg-label">Fondo personalizado (URL)</label>
-                        <input type="text" class="settings-input" id="customBgUrl"
-                            placeholder="https://ejemplo.com/imagen.jpg o .gif">
-                        <p class="settings-hint">Soporta imágenes (JPG, PNG, WebP, SVG) y GIFs animados</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="settings-footer">
-                <button class="settings-save-btn" id="saveSettings">Guardar Cambios</button>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="clock-display">
-                <div class="clock-label" id="clockLabel">Guayaquil, Ecuador</div>
-                <div class="clock-time" id="clockTime">00:00:00</div>
-                <div class="clock-date" id="clockDate">Fecha</div>
+        <!-- Mode Pills -->
+        <div class="mode-pills">
+            <button class="pill active" data-mode="timer">
+                <span data-i18n="timer">Timer</span>
+            </button>
+            <button class="pill" data-mode="pomodoro">
+                <span data-i18n="pomodoro">Pomodoro</span>
+            </button>
+        </div>
+
+        <!-- Timer Inputs (Timer Mode) -->
+        <div class="time-picker active" id="timerMode">
+            <div class="picker-item">
+                <button class="picker-btn up" data-target="hours" data-action="up">+</button>
+                <input type="number" id="hours" value="0" min="0" max="23">
+                <span class="picker-label" data-i18n="hours">h</span>
+                <button class="picker-btn down" data-target="hours" data-action="down">−</button>
             </div>
-
-            <div class="mode-selector">
-                <button class="mode-btn active" data-mode="timer">
-                    <span data-i18n="timer">Temporizador</span>
-                </button>
-                <button class="mode-btn" data-mode="pomodoro">
-                    <span data-i18n="pomodoro">Pomodoro</span>
-                </button>
+            <span class="picker-sep">:</span>
+            <div class="picker-item">
+                <button class="picker-btn up" data-target="minutes" data-action="up">+</button>
+                <input type="number" id="minutes" value="25" min="0" max="59">
+                <span class="picker-label" data-i18n="minutes">m</span>
+                <button class="picker-btn down" data-target="minutes" data-action="down">−</button>
             </div>
+            <span class="picker-sep">:</span>
+            <div class="picker-item">
+                <button class="picker-btn up" data-target="seconds" data-action="up">+</button>
+                <input type="number" id="seconds" value="0" min="0" max="59">
+                <span class="picker-label" data-i18n="seconds">s</span>
+                <button class="picker-btn down" data-target="seconds" data-action="down">−</button>
+            </div>
+        </div>
 
-            <div class="timer-display">
-                <div class="time-circle">
-                    <svg class="progress-ring" width="280" height="280">
-                        <circle class="progress-ring-bg" cx="140" cy="140" r="120"></circle>
-                        <circle class="progress-ring-circle" cx="140" cy="140" r="120"></circle>
-                    </svg>
-                    <div class="time-text" id="timeDisplay">25:00</div>
+        <!-- Pomodoro Stats (Pomodoro Mode) -->
+        <div class="pomo-panel" id="pomodoroMode">
+            <div class="pomo-stat">
+                <span class="pomo-num" id="sessionCount">1</span>
+                <span class="pomo-label" data-i18n="session">Sesión</span>
+            </div>
+            <div class="pomo-divider"></div>
+            <div class="pomo-stat">
+                <span class="pomo-num" id="sessionType" data-i18n="work">Trabajo</span>
+                <span class="pomo-label" data-i18n="type">Tipo</span>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="controls-row">
+            <button class="ctrl-btn secondary" id="resetBtn" aria-label="Reiniciar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M1 4v6h6"></path>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+            </button>
+            <button class="ctrl-btn primary" id="startBtn" aria-label="Iniciar">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21"></polygon>
+                </svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            </button>
+            <button class="ctrl-btn secondary" id="skipBtn" aria-label="Saltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="5,4 15,12 5,20" fill="currentColor"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- Tasks Drawer -->
+    <aside class="tasks-drawer" id="tasksDrawer">
+        <div class="drawer-header">
+            <h2 data-i18n="taskList">Tareas</h2>
+            <button class="drawer-close" id="closeDrawer">×</button>
+        </div>
+        <div class="drawer-body">
+            <div class="task-add">
+                <input type="text" id="taskInput" data-i18n-placeholder="addTask" placeholder="Nueva tarea...">
+                <button id="addTaskBtn">+</button>
+            </div>
+            <ul class="task-list" id="tasksList"></ul>
+        </div>
+    </aside>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-sheet">
+            <div class="modal-handle"></div>
+            <h2 class="modal-title">Configuración</h2>
+
+            <section class="modal-section">
+                <h3>Tema</h3>
+                <div class="theme-row">
+                    <button class="theme-dot active" data-theme="purple" style="--dot-color: #a855f7"></button>
+                    <button class="theme-dot" data-theme="ocean" style="--dot-color: #22d3ee"></button>
+                    <button class="theme-dot" data-theme="sunset" style="--dot-color: #fb923c"></button>
+                    <button class="theme-dot" data-theme="forest" style="--dot-color: #4ade80"></button>
+                    <button class="theme-dot" data-theme="rose" style="--dot-color: #f472b6"></button>
+                    <button class="theme-dot" data-theme="midnight" style="--dot-color: #818cf8"></button>
                 </div>
-            </div>
+            </section>
 
-            <div class="timer-mode active" id="timerMode">
-                <div class="time-inputs">
-                    <div class="input-group">
-                        <label data-i18n="hours">Horas</label>
-                        <input type="number" id="hours" min="0" max="23" value="0">
-                    </div>
-                    <div class="input-group">
-                        <label data-i18n="minutes">Minutos</label>
-                        <input type="number" id="minutes" min="0" max="59" value="25">
-                    </div>
-                    <div class="input-group">
-                        <label data-i18n="seconds">Segundos</label>
-                        <input type="number" id="seconds" min="0" max="59" value="0">
-                    </div>
-                </div>
-            </div>
+            <section class="modal-section">
+                <h3>Zona Horaria</h3>
+                <select class="modal-select" id="timezoneSelect">
+                    <option value="America/Guayaquil">Ecuador — Guayaquil</option>
+                    <option value="America/New_York">USA — Nueva York</option>
+                    <option value="America/Los_Angeles">USA — Los Ángeles</option>
+                    <option value="America/Mexico_City">México — CDMX</option>
+                    <option value="America/Bogota">Colombia — Bogotá</option>
+                    <option value="America/Lima">Perú — Lima</option>
+                    <option value="America/Buenos_Aires">Argentina — Buenos Aires</option>
+                    <option value="Europe/Madrid">España — Madrid</option>
+                    <option value="Europe/London">UK — Londres</option>
+                    <option value="Asia/Tokyo">Japón — Tokio</option>
+                </select>
+            </section>
 
-            <div class="pomodoro-mode" id="pomodoroMode">
-                <div class="pomodoro-stats">
-                    <div class="stat-item">
-                        <span class="stat-label" data-i18n="session">Sesión</span>
-                        <span class="stat-value" id="sessionCount">1</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label" data-i18n="type">Tipo</span>
-                        <span class="stat-value" id="sessionType" data-i18n="work">Trabajo</span>
-                    </div>
-                </div>
+            <section class="modal-section">
+                <h3>Idioma</h3>
+                <select class="modal-select" id="languageSelect">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="pt">Português</option>
+                    <option value="fr">Français</option>
+                </select>
+            </section>
 
-                <div class="pomodoro-settings">
-                    <div class="setting-row">
-                        <label><span data-i18n="work">Trabajo</span> (min)</label>
-                        <input type="number" id="workDuration" min="1" max="60" value="25">
-                    </div>
-                    <div class="setting-row">
-                        <label><span data-i18n="break">Descanso</span> (min)</label>
-                        <input type="number" id="breakDuration" min="1" max="30" value="5">
-                    </div>
-                    <div class="setting-row">
-                        <label><span data-i18n="longBreak">Descanso largo</span> (min)</label>
-                        <input type="number" id="longBreakDuration" min="1" max="60" value="15">
-                    </div>
+            <section class="modal-section">
+                <h3>Pomodoro</h3>
+                <div class="pomo-config">
+                    <label>
+                        <span data-i18n="work">Trabajo</span>
+                        <input type="number" id="workDuration" value="25" min="1" max="60"> min
+                    </label>
+                    <label>
+                        <span data-i18n="break">Descanso</span>
+                        <input type="number" id="breakDuration" value="5" min="1" max="30"> min
+                    </label>
+                    <label>
+                        <span data-i18n="longBreak">Largo</span>
+                        <input type="number" id="longBreakDuration" value="15" min="1" max="60"> min
+                    </label>
                 </div>
-            </div>
+            </section>
 
-            <div class="controls">
-                <button class="control-btn start-btn" id="startBtn">
-                    <span class="btn-icon">▶</span>
-                    <span data-i18n="start">Iniciar</span>
-                </button>
-                <button class="control-btn pause-btn" id="pauseBtn" disabled>
-                    <span class="btn-icon">⏸</span>
-                    <span data-i18n="pause">Pausar</span>
-                </button>
-                <button class="control-btn reset-btn" id="resetBtn">
-                    <span class="btn-icon">↻</span>
-                    <span data-i18n="reset">Reiniciar</span>
-                </button>
-            </div>
+            <section class="modal-section">
+                <label class="toggle-row">
+                    <span>Sonido</span>
+                    <input type="checkbox" id="soundToggle" checked>
+                    <span class="toggle-track"></span>
+                </label>
+                <label class="toggle-row">
+                    <span>Animaciones</span>
+                    <input type="checkbox" id="backgroundToggle" checked>
+                    <span class="toggle-track"></span>
+                </label>
+            </section>
 
-            <div class="task-section">
-                <h3 class="section-title" data-i18n="taskList">Lista de Tareas</h3>
-                <div class="task-input-container">
-                    <input type="text" class="task-input" id="taskInput" data-i18n-placeholder="addTask"
-                        placeholder="Agregar nueva tarea...">
-                    <button class="add-task-btn" id="addTaskBtn">
-                        <span>+</span>
-                    </button>
-                </div>
-                <div class="tasks-list" id="tasksList">
-                    <!-- Tasks will be added here dynamically -->
-                </div>
-            </div>
+            <button class="modal-save" id="saveSettings">Guardar</button>
         </div>
     </div>
 
