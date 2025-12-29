@@ -131,6 +131,8 @@ let currentTimezone = 'America/Guayaquil';
 let currentLanguage = 'es';
 let soundEnabled = true;
 let backgroundEnabled = true;
+let simpleViewEnabled = false;
+let orbsEnabled = true;
 
 let audioContext;
 
@@ -176,6 +178,8 @@ const timezoneSelect = document.getElementById('timezoneSelect');
 const languageSelect = document.getElementById('languageSelect');
 const soundToggle = document.getElementById('soundToggle');
 const backgroundToggle = document.getElementById('backgroundToggle');
+const simpleViewToggle = document.getElementById('simpleViewToggle');
+const orbsToggle = document.getElementById('orbsToggle');
 
 const progressCircle = document.querySelector('.ring-progress');
 const radius = 90;
@@ -195,10 +199,14 @@ function loadSettings() {
         currentLanguage = s.language || 'es';
         soundEnabled = s.soundEnabled !== undefined ? s.soundEnabled : true;
         backgroundEnabled = s.backgroundEnabled !== undefined ? s.backgroundEnabled : true;
+        simpleViewEnabled = s.simpleViewEnabled !== undefined ? s.simpleViewEnabled : false;
+        orbsEnabled = s.orbsEnabled !== undefined ? s.orbsEnabled : true;
     }
 
     applyTheme(currentTheme);
     applyBackground(backgroundEnabled);
+    applySimpleView(simpleViewEnabled);
+    applyOrbs(orbsEnabled);
     updateTranslations();
     updateClockLabel();
 }
@@ -246,7 +254,8 @@ function updateGradientColors(theme) {
         sunset: ['#fb923c', '#f43f5e', '#fbbf24'],
         forest: ['#4ade80', '#2dd4bf', '#a3e635'],
         rose: ['#f472b6', '#c084fc', '#fb7185'],
-        midnight: ['#818cf8', '#a78bfa', '#60a5fa']
+        midnight: ['#818cf8', '#a78bfa', '#60a5fa'],
+        noir: ['#ffffff', '#888888', '#cccccc']
     };
 
     const c = colors[theme] || colors.purple;
@@ -264,13 +273,25 @@ function applyBackground(enabled) {
     document.body.classList.toggle('no-animated-bg', !enabled);
 }
 
+function applySimpleView(enabled) {
+    simpleViewEnabled = enabled;
+    document.body.classList.toggle('simple-view', enabled);
+}
+
+function applyOrbs(enabled) {
+    orbsEnabled = enabled;
+    document.body.classList.toggle('no-orbs', !enabled);
+}
+
 function saveSettings() {
     const settings = {
         theme: currentTheme,
         timezone: timezoneSelect.value,
         language: languageSelect.value,
         soundEnabled: soundToggle.checked,
-        backgroundEnabled: backgroundToggle.checked
+        backgroundEnabled: backgroundToggle.checked,
+        simpleViewEnabled: simpleViewToggle.checked,
+        orbsEnabled: orbsToggle.checked
     };
 
     localStorage.setItem('timerSettings', JSON.stringify(settings));
@@ -281,6 +302,8 @@ function saveSettings() {
 
     applyTheme(settings.theme);
     applyBackground(settings.backgroundEnabled);
+    applySimpleView(settings.simpleViewEnabled);
+    applyOrbs(settings.orbsEnabled);
     updateTranslations();
     updateClockLabel();
 
@@ -295,6 +318,8 @@ function syncSettingsUI() {
     languageSelect.value = currentLanguage;
     soundToggle.checked = soundEnabled;
     backgroundToggle.checked = backgroundEnabled;
+    simpleViewToggle.checked = simpleViewEnabled;
+    orbsToggle.checked = orbsEnabled;
 }
 
 // ===== SETTINGS EVENTS =====
